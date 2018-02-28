@@ -1,0 +1,39 @@
+spring:
+  application.name: springboot-mail-activemq
+  profiles.active: default
+---
+spring:
+  profiles: default
+  main.show-banner: false
+  pidfile: ${java.io.tmpdir}/springboot-mail-activemq.pid
+  activemq:
+    broker-url : vm://localhost?broker.persistent=true&broker.useJmx=true&broker.persistent=true&broker.useShutdownHook=true&jms.redeliveryPolicy.maximumRedeliveries=3&jms.redeliveryPolicy.redeliveryDelay=2000
+    in-memory: false
+    pooled: true
+  mail:
+    host: smtp.yandex.com
+    port: 587
+    username: obacoin@yandex.com
+    password: Oc.chain1453
+    default-encoding: UTF-8
+server:
+  port: 8080
+logging:
+  file: ${java.io.tmpdir}/springboot-mail-activemq.log
+  config: classpath:logback.xml
+management:
+  port: 8081
+  context-path: /management
+endpoints:
+  autoconfig.enabled: false
+  beans.enabled: false
+  configprops.enabled: false
+  dump.enabled: true
+  env.enabled: false
+  health.enabled: true
+  info.enabled: false
+  mappings.enabled: false
+  metrics.enabled: true
+  shutdown.enabled: true
+  trace.enabled: true
+---
