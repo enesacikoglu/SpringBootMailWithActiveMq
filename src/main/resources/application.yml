@@ -13,8 +13,8 @@ spring:
   mail:
     host: smtp.yandex.com
     port: 587
-    username: obacoin@yandex.com
-    password: Oc.chain1453
+    username: test@yandex.com
+    password: test
     default-encoding: UTF-8
 server:
   port: 8080
